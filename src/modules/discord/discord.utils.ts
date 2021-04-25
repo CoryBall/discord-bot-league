@@ -1,8 +1,8 @@
 import { GuildMemberRoleManager, Role } from 'discord.js';
-import { Command } from './discord.types';
+import { ICommand } from './discord.types';
 
 export function roleCheck(
-  { roleNeeded }: Command,
+  { roleNeeded }: ICommand,
   roles: GuildMemberRoleManager | undefined
 ): boolean {
   if (!roleNeeded) return true;

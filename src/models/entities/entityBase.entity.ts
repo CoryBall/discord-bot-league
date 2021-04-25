@@ -1,17 +1,22 @@
-import { PrimaryKey, Property } from '@mikro-orm/core';
+import {
+  CreateDateColumn,
+  DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 abstract class EntityBase {
-  @PrimaryKey({ type: 'uuid', defaultRaw: 'uuid_generate_v4()' })
-  uuid: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-  @Property()
-  createdAt: Date = new Date();
+  @CreateDateColumn({ nullable: false })
+  created: Date;
 
-  @Property({ onUpdate: () => new Date() })
-  updatedAt: Date = new Date();
+  @UpdateDateColumn({ nullable: false })
+  modified: Date;
 
-  @Property({ onCreate: () => false })
-  deleted: boolean;
+  @DeleteDateColumn()
+  deleted: Date;
 }
 
 export default EntityBase;

@@ -1,9 +1,14 @@
 import { Message } from 'discord.js';
 
-export type Command = {
-  name: string;
-  description: string;
-  usage?: string;
-  roleNeeded?: string;
-  execute(message: Message, args?: string[]): Promise<void>;
-};
+abstract class ICommand {
+  public command: string;
+  public description: string;
+  public usage?: string;
+  public roleNeeded?: string;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public execute(_message: Message, _args?: string[]): void {
+    return;
+  }
+}
+
+export { ICommand };

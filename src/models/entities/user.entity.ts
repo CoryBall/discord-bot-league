@@ -1,15 +1,15 @@
-import { Entity, Property } from '@mikro-orm/core';
 import { EntityBase } from './index';
+import { Column, Entity } from 'typeorm';
 
 @Entity()
 class User extends EntityBase {
-  @Property({ unique: true })
+  @Column({ unique: true })
   summonerId: string;
 
-  @Property()
+  @Column()
   summonerName: string;
 
-  @Property()
+  @Column()
   discordId: string;
 }
 

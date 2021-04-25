@@ -1,14 +1,10 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
-import { Inject, Service } from 'typedi';
-import OrmService from '../orm/orm.service';
+import { Service } from 'typedi';
 
 @Service()
 class AppService {
   private app: Application;
-
-  @Inject()
-  ormService: OrmService;
 
   public init = async (): Promise<void> => {
     this.app = express();
