@@ -8,7 +8,7 @@
     "watch": "tsc -w",
     "build": "tsc",
     "start": "node -r dotenv/config ./dist/server.js dotenv_config_path=env/dev.env",
-    "start:prod": "node -r dotenv/config ./dist/server.js dotenv_config_path=env/prod.env",
+    "start:prod": "node -r dotenv/config ./dist/server.js",
     "dev": "nodemon --watch .env --watch ./src -r dotenv/config --exec ts-node --files src/server.ts dotenv_config_path=env/dev.env",
     "database:migrate": "cross-env DOTENV_CONFIG_PATH=env/dev.env ts-node -T -r dotenv/config ./node_modules/typeorm/cli.js migration:generate -n",
     "database:update": "cross-env DOTENV_CONFIG_PATH=env/dev.env ts-node -T -r dotenv/config ./node_modules/typeorm/cli.js migration:run",

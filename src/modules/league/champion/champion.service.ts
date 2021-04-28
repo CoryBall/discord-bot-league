@@ -13,7 +13,7 @@ class ChampionService {
       const result = await axios.get<ChampionResult>(url);
       const champions = result.data.data;
       const foundChampions: string[] = Object.keys(champions).filter((name) =>
-        name.toLowerCase().includes(championSearch)
+        name.toLowerCase().includes(championSearch.toLowerCase())
       );
 
       const guides: ChampionGuide[] = [];

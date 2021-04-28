@@ -1,6 +1,4 @@
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
-
-export default {
+module.exports = {
   name: 'default',
   type: 'postgres',
   host: process.env.POSTGRES_HOST,
@@ -16,4 +14,4 @@ export default {
   cli: {
     migrationsDir: 'src/migrations',
   },
-} as PostgresConnectionOptions;
+};

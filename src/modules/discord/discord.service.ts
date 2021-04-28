@@ -21,10 +21,6 @@ class DiscordService {
     client.once('ready', async () => {
       console.log('Discord.Js Initiated');
       this.commands = Container.getMany(CommandToken);
-      console.log(
-        'commands registered: ',
-        this.commands.map((service) => service.command)
-      );
     });
     client.on('message', (message: Message) => {
       if (!message.content.startsWith(discordPrefix) || message.author.bot)
